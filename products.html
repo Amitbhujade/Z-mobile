@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-mobile</title>
+
+    <!-- swiperjs cdn link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Font awesome cdn link -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Stylesheet link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Product Stylesheet link -->
+    <link rel="stylesheet" href="product.css">
+
+    <style>
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- header section start -->
+    <header class="header">
+
+        <a href="index.html" class="logo"><i class="fa fa-mobile" aria-hidden="true"></i>Z-mobile</a>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="blogs.html">Blogs</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-bag"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+        </div>
+
+        <form action="#" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+
+        </form>
+
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/6116+vSW+1L._SX569_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>OnePlus Nord 3 5G</h3>
+                    <span class="price">Rs.39999/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>Samsung Galaxy M15 5G</h3>
+                    <span class="price">Rs.13,299/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>iQOO Z7 Pro 5G</h3>
+                    <span class="price">Rs.23,999/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="total">total : Rs.77,297</div>
+            <a href="#" class="btn">checkout</a>
+        </div>
+        </div>
+
+        <div class="login-form">
+            <h3>Login now</h3>
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <p>Forgot your password <a href="#">Click here</a>
+            </p>
+            <p>Don't have account ? <a href="#" id="signup-btn">Create now</a>
+            </p>
+            <input type="submit" value="Login Now" class="btn">
+        </div>
+
+        <div class="signup-form" id="signup-btn">
+            <h3>Signup now</h3>
+            <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
+            <input type="text" placeholder="your name" class="box">
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <input type="password" placeholder="confirm password" class="box">
+            <input type="submit" value="Signup Now" class="btn">
+        </div>
+
+    </header>
+    <!-- header section end -->
+
+    <!-- products section start -->
+
+    <section class="products" id="products">
+        <h1 class="heading">Our <span>Products</span></h1>
+
+        <a href="#" onclick="toggleDiv()" class="btn"><i class="fas fa-filter"></i> Filter</a>
+
+        <div id="myBtnContainer">
+            <h1>Filter by brand name:</h1>
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('samsung')"> Samsung</button>
+            <button class="btn" onclick="filterSelection('iqoo')"> Iqoo</button>
+            <button class="btn" onclick="filterSelection('oneplus')"> Oneplus</button>
+            <button class="btn" onclick="filterSelection('honor')"> Honor</button>
+            <button class="btn" onclick="filterSelection('apple')"> Apple</button>
+            <button class="btn" onclick="filterSelection('redmi')"> Redmi</button>
+            <button class="btn" onclick="filterSelection('poco')"> Poco</button>
+            <button class="btn" onclick="filterSelection('vivo')"> Vivo</button>
+
+            <h1>Filter by Price range:</h1>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="200000" value="0" class="slider" id="myRange">
+                <span style="font-size: 2rem;">Rs.</span>
+                <div class="slider-value" id="sliderValue" style="display: inline;"></div>
+            </div>
+        </div>
+
+        <div class="product-slider container">
+
+            <!-- Product 1 -->
+
+            <div class="box filterDiv samsung" data-price="129999">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" id="view-more" class="btn">View More</a>
+            </div>
+
+            <!--product 1 image silder -->
+
+            <div class="product-div">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <a href="#" class="cancel-btn" id="cancel"><i class="fas fa-multiply"></i></a>
+                <div class="mySlides">
+                    <div class="numbertext">1 / 6</div>
+                    <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 6</div>
+                    <img src="https://m.media-amazon.com/images/I/71JLhofuYJL._SX679_.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 6</div>
+                    <img src="https://m.media-amazon.com/images/I/71ZdFihN4YL._SX679_.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 6</div>
+                    <img src="https://m.media-amazon.com/images/I/71E-ptCgHcL._SX679_.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">5 / 6</div>
+                    <img src="https://m.media-amazon.com/images/I/71RaUP4g7KL._SX679_.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">6 / 6</div>
+                    <img src="https://m.media-amazon.com/images/I/71xI+CuesJL._SX679_.jpg" style="width:100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+
+                <div class="row">
+                    <div class="column">
+                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" style="width:100%" onclick="currentSlide(1)"
+                            alt="The Woods">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71JLhofuYJL._SX679_.jpg" style="width:100%" onclick="currentSlide(2)"
+                            alt="Cinque Terre">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71ZdFihN4YL._SX679_.jpg" style="width:100%" onclick="currentSlide(3)"
+                            alt="Mountains and fjords">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71E-ptCgHcL._SX679_.jpg" style="width:100%" onclick="currentSlide(4)"
+                            alt="Northern Lights">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71RaUP4g7KL._SX679_.jpg" style="width:100%" onclick="currentSlide(5)"
+                            alt="Nature and sunrise">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71xI+CuesJL._SX679_.jpg" style="width:100%" onclick="currentSlide(6)"
+                            alt="Snowy Mountains">
+                    </div>
+
+                </div>
+
+                <!--product 1 dscription -->
+                <div class="product-description">
+                    <div class="product-content">
+                        <h4>Samsung Galaxy S24 Ultra 5G AI Smartphone (Titanium Black, 12GB, 256GB Storage)</h4>
+                        <h5>Price: Rs. 1,29,999 /-</h5>
+
+                        <div class="option">
+                            <a href="#" class="btn">add to card</a>
+                            <a href="#" class="btn">buy now</a>
+                        </div>
+
+                        <ul>
+                            <li><i class="fa-solid fa-truck"></i> Free Delivery</li>
+                            <li><i class="fa-solid fa-certificate"></i> 1 Year warranty</li>
+                            <li><i class="fa-solid fa-trophy"></i> Top Brand</li>
+                            <li><i class="fa-solid fa-screwdriver-wrench"></i> Set up at delivery</li>
+                        </ul>
+
+                        <div class="description">
+                            <h5>Description</h5>
+                            <ul>
+                                <li>Meet Galaxy S24 Ultra, the ultimate form of Galaxy Ultra with a new titanium exterior and a 17.25cm
+                                    (6.8") flat display.
+                                    It's an absolute marvel of design.</li>
+                                <li>The legacy of Galaxy Note is alive and well. Write, tap and navigate with precision your fingers
+                                    wish they had on the
+                                    new, flat display.</li>
+                                <li>With the most megapixels on a smartphone and AI processing, Galaxy S24 Ultra sets the industry
+                                    standard for image
+                                    quality every time you hit the shutter. What's more, the new ProVisual engine recognizes objects —
+                                    improving colour
+                                    tone, reducing noise and bringing out detail.</li>
+                                <li>A new way to search is here with Circle to Search. While scrolling your fav social network, use your
+                                    S Pen or finger to
+                                    circle something and get Google Search results.</li>
+                                <li>Victory can be yours with the new Snapdragon 8 Gen 3 for Galaxy. Faster processing gives you the
+                                    power you need for all
+                                    the gameplay you want. Then, manifest graphic effects in real time with ray tracing for
+                                    hyper-realistic shadows and
+                                    reflections.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+
+            <div class="box filterDiv iqoo" data-price="44999">
+                <img src="https://m.media-amazon.com/images/I/41+OkeyntgL._SY300_SX300_.jpg" alt="">
+                <h3>iQOO 11 5G</h3>
+                <div class="price">Rs.44,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="box filterDiv samsung" data-price="59999">
+                <img src="https://m.media-amazon.com/images/I/71qGismu6NL._SX679_.jpg" alt="">
+                <h3>Samsung Galaxy S23 FE 5G</h3>
+                <div class="price">Rs.59,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="box filterDiv apple" data-price="52090">
+                <img src="https://m.media-amazon.com/images/I/71GLMJ7TQiL._SX679_.jpg" alt="">
+                <h3>Apple iPhone 13</h3>
+                <div class="price">Rs.52,090 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="box filterDiv oneplus" data-price="139999">
+                <img src="https://m.media-amazon.com/images/I/51LByp9EsxL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Oneplus Open</h3>
+                <div class="price">Rs.1,39,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="box filterDiv iqoo" data-price="52999">
+                <img src="https://m.media-amazon.com/images/I/619lW2YtVhL._SX679_.jpg" alt="">
+                <h3>iQOO 12 5G</h3>
+                <div class="price">Rs.52,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="box filterDiv honor" data-price="24999">
+                <img src="https://m.media-amazon.com/images/I/71H5JOOMacL._SX679_.jpg" alt="">
+                <h3>HONOR X9b 5G</h3>
+                <div class="price">Rs.24,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="box filterDiv iqoo" data-price="29999">
+                <img src="https://m.media-amazon.com/images/I/712pLRfzDYL._SX679_.jpg" alt="">
+                <h3>iQOO Neo 7 Pro 5G</h3>
+                <div class="price">Rs.29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="box filterDiv redmi" data-price="25999">
+                <img src="https://m.media-amazon.com/images/I/7169hX0S18L._SX679_.jpg" alt="">
+                <h3>Redmi Note 13 Pro</h3>
+                <div class="price">Rs.25,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="box filterDiv samsung" data-price="30999">
+                <img src="https://m.media-amazon.com/images/I/71picrEy4YL._SX679_.jpg" alt="">
+                <h3>Samsung Galaxy A35 5G</h3>
+                <div class="price">Rs.30,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="box filterDiv oneplus" data-price="23990">
+                <img src="https://m.media-amazon.com/images/I/61+Q6Rh3OQL._SX679_.jpg" alt="">
+                <h3>OnePlus Nord CE 2 5G</h3>
+                <div class="price">Rs.23,990 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="box filterDiv apple" data-price="70999">
+                <img src="https://m.media-amazon.com/images/I/71657TiFeHL._SX679_.jpg" alt="">
+                <h3>Apple iPhone 15</h3>
+                <div class="price">Rs.70,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="box filterDiv poco" data-price="9999">
+                <img src="https://m.media-amazon.com/images/I/51X1axWGFZL._SX679_.jpg" alt="">
+                <h3>POCO M6 Pro 5G</h3>
+                <div class="price">Rs.9,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="box filterDiv oneplus" data-price="39999">
+                <img src="https://m.media-amazon.com/images/I/717JX3femML._SX679_.jpg" alt="">
+                <h3>OnePlus 12R</h3>
+                <div class="price">Rs.39,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="box filterDiv vivo" data-price="23999">
+                <img src="https://m.media-amazon.com/images/I/71JwBmU9nFL._SX679_.jpg" alt="">
+                <h3>Vivo T2 Pro 5G</h3>
+                <div class="price">Rs.23,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="box filterDiv vivo" data-price="32999">
+                <img src="https://m.media-amazon.com/images/I/51iCNSU7KOL._SX679_.jpg" alt="">
+                <h3>Vivo V30 5G</h3>
+                <div class="price">Rs.32,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="box filterDiv honor" data-price="39999">
+                <img src="https://m.media-amazon.com/images/I/81jeBCCEzXL._SX679_.jpg" alt="">
+                <h3>HONOR 90</h3>
+                <div class="price">Rs.39,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="box filterDiv samsung" data-price="8999">
+                <img src="https://m.media-amazon.com/images/I/913EiorAS0L._SX569_.jpg" alt="">
+                <h3>Samsung Galaxy M14 4G</h3>
+                <div class="price">Rs.8,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="box filterDiv iqoo" data-price="23999">
+                <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" alt="">
+                <h3>iQOO Z7 Pro 5G</h3>
+                <div class="price">Rs.23,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="box filterDiv apple" data-price="80990">
+                <img src="https://m.media-amazon.com/images/I/71PjpS59XLL._SX679_.jpg" alt="">
+                <h3>Apple iPhone 15 Plus</h3>
+                <div class="price">Rs.80,990 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 21 -->
+            <div class="box filterDiv iqoo" data-price="35999">
+                <img src="https://m.media-amazon.com/images/I/718jcIFYaAL._SX679_.jpg" alt="">
+                <h3>iQOO Neo9 Pro 5G</h3>
+                <div class="price">Rs.35,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 22 -->
+            <div class="box filterDiv oneplus" data-price="24999">
+                <img src="https://m.media-amazon.com/images/I/61nxQ62qglL._SX679_.jpg" alt="">
+                <h3>Oneplus Nord CE4</h3>
+                <div class="price">Rs.24,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 23 -->
+            <div class="box filterDiv poco" data-price="23999">
+                <img src="https://m.media-amazon.com/images/I/51nR5QYbGQL._SY741_.jpg" alt="">
+                <h3>POCO X6 5G</h3>
+                <div class="price">Rs.23,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+
+            <!-- Product 24 -->
+            <div class="box filterDiv oneplus" data-price="17999">
+                <img src="https://m.media-amazon.com/images/I/61QRgOgBx0L._SX679_.jpg" alt="">
+                <h3>OnePlus Nord CE 3 Lite</h3>
+                <div class="price">Rs.17,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <a href="#" class="btn">View More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- products section end -->
+
+
+    <!-- footer section start -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3><i class="fa-solid fa-mobile"></i> Z-Mobile</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, porro!</p>
+                <div class="share">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Contact info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1231</a>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1000</a>
+                <a style="text-transform: lowercase;" href="#" class="links"><i class="fas fa-mail-bulk"></i>
+                    zmobile123@gmail.com</a>
+                <a href="#" class="links"><i class="fas fa-location-dot"></i> Mumbai, India - 441810</a>
+            </div>
+
+            <div class="box">
+                <h3>Quick links</h3>
+                <a href="#home" class="links"><i class="fas fa-arrow-right"></i> Home</a>
+                <a href="#features" class="links"><i class="fas fa-arrow-right"></i> Features</a>
+                <a href="#products" class="links"><i class="fas fa-arrow-right"></i> Products</a>
+                <a href="#categories" class="links"><i class="fas fa-arrow-right"></i> Categories</a>
+                <a href="#reviews" class="links"><i class="fas fa-arrow-right"></i> Reviews</a>
+                <a href="#blogs" class="links"><i class="fas fa-arrow-right"></i> Blogs</a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="your email" class="email">
+                <input type="submit" value="subscribe" class="sb-btn">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.EybAxTSCq4F0wBGW7JA4IQHaCO&pid=Api&P=0&h=180" alt="">
+            </div>
+        </div>
+
+        <div class="credit">created by <span>amit bhujade</span> | All right reserved.</div>
+    </section>
+    <!-- footer section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Javascript section -->
+    <script src="/mobile website/mobile.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".product-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".review-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+
+</body>
+
+</html>

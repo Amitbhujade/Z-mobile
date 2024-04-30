@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-mobile</title>
+
+    <!-- swiperjs cdn link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Font awesome cdn link -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Stylesheet link -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .features {
+            margin-top: 7rem;
+        }
+
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: white;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        /* Container around content */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        /* The circles on the timeline */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #FF9F55;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+
+        /* Place the container to the left */
+        .left {
+            left: 0;
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 50%;
+        }
+
+        /* Add arrows to the left container (pointing right) */
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -16px;
+        }
+
+        /* The actual content */
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            transition: 0.2s ease;
+        }
+
+        .content h2{
+            font-size: 2.5rem;
+            color: #130f40;
+        }
+
+        .content p{
+            font-size: 1.7rem;
+            color: #666;
+        }
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+
+            /* Place the timelime to the left */
+            .timeline::after {
+                left: 31px;
+            }
+
+            /* Full-width containers */
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            /* Make sure that all arrows are pointing leftwards */
+            .container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            /* Make sure all circles are at the same spot */
+            .left::after,
+            .right::after {
+                left: 15px;
+            }
+
+            /* Make all right containers behave like the left ones */
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- header section start -->
+    <header class="header">
+
+        <a href="index.html" class="logo"><i class="fa fa-mobile" aria-hidden="true"></i>Z-mobile</a>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="review.html">Reviews</a>
+            <a href="blogs.html">Blogs</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-bag"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+        </div>
+
+        <form action="#" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+
+        </form>
+
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/6116+vSW+1L._SX569_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>OnePlus Nord 3 5G</h3>
+                    <span class="price">Rs.39999/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>Samsung Galaxy M15 5G</h3>
+                    <span class="price">Rs.13,299/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>iQOO Z7 Pro 5G</h3>
+                    <span class="price">Rs.23,999/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="total">total : Rs.77,297</div>
+            <a href="#" class="btn">checkout</a>
+        </div>
+        </div>
+
+        <div class="login-form">
+            <h3>Login now</h3>
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <p>Forgot your password <a href="#">Click here</a>
+            </p>
+            <p>Don't have account ? <a href="#" id="signup-btn">Create now</a>
+            </p>
+            <input type="submit" value="Login Now" class="btn">
+        </div>
+
+        <div class="signup-form" id="signup-btn">
+            <h3>Signup now</h3>
+            <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
+            <input type="text" placeholder="your name" class="box">
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <input type="password" placeholder="confirm password" class="box">
+            <input type="submit" value="Signup Now" class="btn">
+        </div>
+
+    </header>
+    <!-- header section end -->
+
+    <!-- features section start -->
+    <section class="features" id="features">
+        <h1 class="heading">Our <span>Features</span>
+        </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="https://cdn.dribbble.com/users/2317423/screenshots/14421147/media/02e42f1fba1d95471b44b64c98040751.jpg"
+                    alt="">
+                <h3>Latest And Futuristic</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="https://png.pngtree.com/png-clipart/20211026/original/pngtree-cartoon-delivery-man-png-image_876933.png"
+                    alt="">
+                <h3>Free Delivery</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste
+                    cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="https://thumbs.dreamstime.com/b/print-226956983.jpg" alt="">
+                <h3>Easy Returns</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste
+                    cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="https://www.pngall.com/wp-content/uploads/5/Online-Payment-PNG-Image-HD.png" alt="">
+                <h3>Online Payments</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste
+                    cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="https://static.vecteezy.com/system/resources/previews/000/211/036/original/customer-service-woman-character-with-bubble-speech-vector.jpg"
+                    alt="">
+                <h3>24X7 Customer Support</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste
+                    cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="https://theislanddeals.com/wp-content/uploads/2020/10/genuine.jpg" alt="">
+                <h3>100% Genuine Products</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste
+                    cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="https://www.brighamandwomensfaulkner.org/assets/Faulkner/news/cms-5-star-2019.jpg" alt="">
+                <h3>Top Rated</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste
+                    cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="https://storage.needpix.com/rsynced_images/shop-158317_1280.png" alt="">
+                <h3>Available soon</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vel tempora perspiciatis ab
+                    modi iste
+                    cumque praesentium libero molestias sunt!</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- features section end -->
+
+    <!-- timeline section start -->
+
+    <section class="journey" id="journey">
+        <h1 class="heading">Our <span>Journey</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="timeline">
+                <div class="container left">
+                    <div class="content">
+                        <h2>2017</h2>
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                            eam.</p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <h2>2016</h2>
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                            eam.</p>
+                    </div>
+                </div>
+                <div class="container left">
+                    <div class="content">
+                        <h2>2015</h2>
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                            eam.</p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <h2>2012</h2>
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                            eam.</p>
+                    </div>
+                </div>
+                <div class="container left">
+                    <div class="content">
+                        <h2>2011</h2>
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                            eam.</p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <h2>2007</h2>
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                            eam.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- timeline section end -->
+
+    <!-- footer section start -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Z-Mobile <i class="fa-solid fa-mobile"></i></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, porro!</p>
+                <div class="share">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Contact info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1231</a>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1000</a>
+                <a style="text-transform: lowercase;" href="#" class="links"><i class="fas fa-mail-bulk"></i>
+                    zmobile123@gmail.com</a>
+                <a href="#" class="links"><i class="fas fa-location-dot"></i> Mumbai, India - 441810</a>
+            </div>
+
+            <div class="box">
+                <h3>Quick links</h3>
+                <a href="#features" class="links"><i class="fas fa-arrow-right"></i> Features</a>
+                <a href="#journey" class="links"><i class="fas fa-arrow-right"></i> Journey</a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="your email" class="email">
+                <input type="submit" value="subscribe" class="sb-btn">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.EybAxTSCq4F0wBGW7JA4IQHaCO&pid=Api&P=0&h=180" alt="">
+            </div>
+        </div>
+
+        <div class="credit">created by <span>amit bhujade</span> | All right reserved.</div>
+    </section>
+    <!-- footer section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Javascript section -->
+    <script src="/mobile website/mobile.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".product-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".review-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+</body>
+
+</html>

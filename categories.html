@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-mobile</title>
+
+    <!-- swiperjs cdn link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Font awesome cdn link -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Stylesheet link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Product Stylesheet link -->
+    <link rel="stylesheet" href="product.css">
+
+    <style>
+        :root {
+            --orange: #ff7800;
+            --black: #130f40;
+            --white: #ffffff;
+            --light-color: #666;
+            /* --box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.75); */
+            --border: 0.5rem solid rgba(0, 0, 0, 0.1);
+            /* --outline: 0.5rem solid rgba(0, 0, 0, 0.1); */
+            --outline-hover: 0.3rem solid var(--orange);
+            --box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        }
+
+        .categories {
+            margin-top: 10rem;
+        }
+
+        .collapsible {
+            background-color: #ff7800;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 2rem;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .data {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+
+        .categories .data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 1.5rem;
+        }
+
+        .categories .data .box {
+            background: #fff;
+            border-radius: 0.5rem;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            outline-offset: -1rem;
+            outline: var(--outline);
+            box-shadow: var(--box-shadow);
+            transition: 0.2s ease;
+            margin-top: 2rem;
+        }
+
+        .categories .data .box:hover {
+            outline-offset: 0rem;
+            outline: var(--outline-hover);
+        }
+
+        .categories .data .box img {
+            height: 20rem;
+        }
+
+        .categories .data .box h3 {
+            font-size: 2rem;
+            color: var(--black);
+        }
+
+        .categories .data .box .price {
+            font-size: 2rem;
+            color: var(--light-color);
+            padding: 0.5rem 0;
+        }
+
+        .categories .data .box .stars {
+            font-size: 1.7rem;
+            color: var(--orange);
+            padding: 0.5rem 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- header section start -->
+    <header class="header">
+
+        <a href="index.html" class="logo"><i class="fa fa-mobile" aria-hidden="true"></i>Z-mobile</a>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="blogs.html">Blogs</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-bag"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+        </div>
+
+        <form action="#" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+
+        </form>
+
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/6116+vSW+1L._SX569_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>OnePlus Nord 3 5G</h3>
+                    <span class="price">Rs.39999/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>Samsung Galaxy M15 5G</h3>
+                    <span class="price">Rs.13,299/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px"
+                    alt="">
+                <div class="content">
+                    <h3>iQOO Z7 Pro 5G</h3>
+                    <span class="price">Rs.23,999/-</span>
+                    <span class="quantity">qty: 1</span>
+                </div>
+            </div>
+            <div class="total">total : Rs.77,297</div>
+            <a href="#" class="btn">checkout</a>
+        </div>
+        </div>
+
+        <div class="login-form">
+            <h3>Login now</h3>
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <p>Forgot your password <a href="#">Click here</a>
+            </p>
+            <p>Don't have account ? <a href="#" id="signup-btn">Create now</a>
+            </p>
+            <input type="submit" value="Login Now" class="btn">
+        </div>
+
+        <div class="signup-form" id="signup-btn">
+            <h3>Signup now</h3>
+            <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
+            <input type="text" placeholder="your name" class="box">
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <input type="password" placeholder="confirm password" class="box">
+            <input type="submit" value="Signup Now" class="btn">
+        </div>
+
+    </header>
+    <!-- header section end -->
+
+    <section class="categories" id="categories">
+        <h1 class="heading">product <span>categories</span></h1>
+        <button class="collapsible">Android smartphones</button>
+        <div class="data">
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+                <h3>Samsung Galaxy S24 Ultra 5G</h3>
+                <div class="price">Rs.1,29,999 /-</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">Apple iphones</button>
+        <div class="data">
+
+        </div>
+        <button class="collapsible">Tablet</button>
+        <div class="data">
+        
+        </div>
+        <button class="collapsible">Smartwatch</button>
+        <div class="data">
+        
+        </div>
+        <button class="collapsible">Bluetooth Earphones</button>
+        <div class="data">
+        
+        </div>
+    </section>
+
+
+    <!-- footer section start -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3><i class="fa-solid fa-mobile"></i> Z-Mobile</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, porro!</p>
+                <div class="share">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Contact info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1231</a>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1000</a>
+                <a style="text-transform: lowercase;" href="#" class="links"><i class="fas fa-mail-bulk"></i>
+                    zmobile123@gmail.com</a>
+                <a href="#" class="links"><i class="fas fa-location-dot"></i> Mumbai, India - 441810</a>
+            </div>
+
+            <div class="box">
+                <h3>Quick links</h3>
+                <a href="#home" class="links"><i class="fas fa-arrow-right"></i> Home</a>
+                <a href="#features" class="links"><i class="fas fa-arrow-right"></i> Features</a>
+                <a href="#products" class="links"><i class="fas fa-arrow-right"></i> Products</a>
+                <a href="#categories" class="links"><i class="fas fa-arrow-right"></i> Categories</a>
+                <a href="#reviews" class="links"><i class="fas fa-arrow-right"></i> Reviews</a>
+                <a href="#blogs" class="links"><i class="fas fa-arrow-right"></i> Blogs</a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="your email" class="email">
+                <input type="submit" value="subscribe" class="sb-btn">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.EybAxTSCq4F0wBGW7JA4IQHaCO&pid=Api&P=0&h=180" alt="">
+            </div>
+        </div>
+
+        <div class="credit">created by <span>amit bhujade</span> | All right reserved.</div>
+    </section>
+    <!-- footer section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Javascript section -->
+    <script src="/mobile website/mobile.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".product-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".review-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <!-- script for collapsible  -->
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+.products {
+    margin-top: 7rem;
+}
+
+.products .product-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.products #myBtnContainer {
+    margin-bottom: 2rem;
+    position: relative;
+    display: none;
+    /* top: 35%;
+            left: auto; */
+    margin-top: 2rem;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: #fff;
+    /* text-align: center; */
+    line-height: 3;
+    transition: 0.5s ease;
+}
+
+.products #myBtnContainer h1 {
+    display: inline-block;
+    font-size: 2rem;
+    padding-right: 2rem;
+}
+
+.filterDiv {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.container {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.slidecontainer {
+    width: 100%;
+    padding: 0 4rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 20px;
+    background: #d3d3d3;
+    border-radius: 20px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider-value {
+    font-size: 2rem;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: #ff7800;
+    border-radius: 50%;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.range-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 15px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    outline: 1px solid #494a4f;
+    border-radius: 0.5rem;
+    border: none;
+    transition: 0.2s ease;
+    font-size: 1.5rem;
+    font-family: serif;
+    font-weight: 800;
+}
+
+.pagination button:hover {
+    background: #ff7800;
+    color: white;
+}
+
+.hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.product-div {
+    position: absolute;
+    top: 12%;
+    height: auto;
+    left: -110%;
+    background: #fff;
+    border-radius: 0.5rem;
+    width: 95%;
+    border: 2px solid orange;
+    transition: 0.4s ease;
+}
+
+.product-div.active {
+    position: absolute;
+    display: block;
+    top: 12%;
+    height: auto;
+    left: 2rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    width: 95%;
+    border: 2px solid orange;
+}
+
+.cancel-btn {
+    font-size: 2.5rem;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    background: #eee;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    transition: 0.4s ease;
+}
+
+.cancel-btn:hover {
+    color: var(--white);
+    background: var(--orange);
+}
+
+.product-div h3 {
+    font-size: 3rem;
+    padding: 2rem;
+}
+
+.product-div a {
+    position: absolute;
+    font-size: 3rem;
+    right: 2rem;
+    top: 3%;
+    background: #eee;
+    padding: 0.5rem 1rem;
+    color: black;
+}
+
+.product-div .mySlides img {
+    height: 60rem;
+
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    padding: 0 20rem;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: 220px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+/* .prev:hover,
+                .next:hover {
+                    background-color: rgba(0, 0, 0, 0.8);
+                } */
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: black;
+    font-size: 16px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 20;
+    left: 0;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row {
+    display: block;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 8%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 1;
+    margin: 0 2rem;
+}
+
+.active,
+.demo:hover {
+    border: 2px solid black;
+}
+
+.product-description .product-content {
+    padding: 3rem;
+}
+
+.product-description .product-content h4 {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: serif;
+}
+
+.product-description .product-content h5 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-top: 2rem;
+}
+
+.product-description .product-content ul {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.product-description .product-content ul li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.product-description .product-content ul li i {
+    color: #ff7800;
+    font-size: 3rem;
+}
+
+.product-description .product-content .description {
+    display: block;
+}
+
+.product-description .product-content .description h5 {
+    font-size: 2rem;
+    color: black;
+}
+
+.product-description .product-content .description ul li {
+    display: block;
+    text-align: start;
+    font-size: 1.7rem;
+    
+}
+
+.product-description .product-content .option {
+
+    width: 90%;
+}
+
+.product-description .product-content .option a {
+    position: relative;
+    left: 0;
+    top: 0;
+    font-size: 2rem;
+    margin: 1rem 0;
+    margin-right: 0.5rem;
+}
+
+/* Media queries */
+
+@media (max-width:991px) {
+    .mySlides {
+        display: none;
+        padding: 0 2rem;
+        width: 90%;
+    }
+
+    .product-div .mySlides img {
+        height: 60rem;
+        width: auto;
+    }
+}
+
+@media (max-width:768px) {
+
+    .mySlides {
+        display: none;
+        padding: 0 2rem;
+        width: 90%;
+    }
+
+    .product-div .mySlides img {
+        height: 50rem;
+        width: auto;
+    }
+}
+
+@media (max-width:450px) {
+    .mySlides {
+        display: none;
+        padding: 0 2rem;
+        width: 90%;
+    }
+
+    .product-div .mySlides img {
+        height: 30rem;
+        width: auto;
+    }
+}
