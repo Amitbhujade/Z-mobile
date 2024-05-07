@@ -15,10 +15,75 @@
     <!-- Stylesheet link -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- <style>
+        /* Pre-loader CSS */
+        .page-loader {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background: white;
+            z-index: 1000;
+
+            .txt {
+                color: #666;
+                text-align: center;
+                top: 40%;
+                position: relative;
+                text-transform: uppercase;
+                letter-spacing: 0.3rem;
+                font-weight: bold;
+                line-height: 1.5;
+                font-size: 2rem;
+                font-family: sans-serif;
+            }
+        }
+
+        /* Spinner animation */
+        .spinner {
+            position: relative;
+            top: 35%;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            background-color: black;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 0.5s infinite ease-in-out;
+            animation: sk-scaleout 1.5s infinite ease-in-out;
+        }
+
+        @-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0)
+            }
+
+            100% {
+                -webkit-transform: scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+
+            100% {
+                -webkit-transform: scale(1.2);
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style> -->
+
 
 </head>
 
-<body>
+<body id="content" onload="hideLoader()">
+    <div class="page-loader">
+        <div class="spinner"></div>
+        <div class="txt">Loading...</div>
+    </div>
 
     <!-- header section start -->
     <header class="header">
@@ -31,7 +96,7 @@
             <a href="products.html">Products</a>
             <a href="categories.html">Categories</a>
             <a href="reviews.html">Reviews</a>
-            <a href="blogs.html">Services</a>
+            <a href="blogs.html">Blogs</a>
         </nav>
 
         <div class="icons">
@@ -39,70 +104,79 @@
             <div id="search-btn" class="fas fa-search"></div>
             <div id="cart-btn" class="fas fa-shopping-bag"></div>
             <div id="user-btn" class="fas fa-user"></div>
+            <div id="profile" class="fa-solid fa-address-card"><span id="profileName"></span>
+                <div class="profile-info">
+                    <h3>Name: <span id="profileName2"></span></h3>
+                    <h3>Email: <span id="profileEmail" style="text-transform: lowercase;"></span></h3>
+                    <a href="#" onClick="logout()"><i class="fas fa-sign-out btn">
+                            <h3 style="display: inline;"> Logout</h3>
+                        </i> </a>
+                </div>
+            </div>
         </div>
+
 
         <form action="#" class="search-form">
             <input type="search" id="search-box" placeholder="search here...">
             <label for="search-box" class="fas fa-search"></label>
-
         </form>
+        <div id="searchResults"></div>
 
         <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/6116+vSW+1L._SX569_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>OnePlus Nord 3 5G</h3>
-                    <span class="price">Rs.39999/-</span>
-                    <span class="quantity">qty: 1</span>
-                </div>
+        
+            <h3 style="font-size: 2rem; text-align: center;">My cart</h3>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
             </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>Samsung Galaxy M15 5G</h3>
-                    <span class="price">Rs.13,299/-</span>
-                    <span class="quantity">qty: 1</span>
+            <div class="total">Total : Rs.<span class="total-price">0</span></div>
+            <a href="#" class="btn checkout">Checkout</a>
+        
+            <!-- <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px" alt="">
+                    <div class="content">
+                        <h3>Samsung Galaxy M15 5G</h3>
+                        <span class="price">Rs.13,299/-</span>
+                        <span class="quantity">qty: 1</span>
+                    </div>
                 </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>iQOO Z7 Pro 5G</h3>
-                    <span class="price">Rs.23,999/-</span>
-                    <span class="quantity">qty: 1</span>
-                </div>
-            </div>
-            <div class="total">total : Rs.77,297</div>
-            <a href="#" class="btn">checkout</a>
+                <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px" alt="">
+                    <div class="content">
+                        <h3>iQOO Z7 Pro 5G</h3>
+                        <span class="price">Rs.23,999/-</span>
+                        <span class="quantity">qty: 1</span>
+                    </div>
+                </div> 
+                    <div class="total">total : Rs.77,297</div>
+                    <a href="#" class="btn">checkout</a> -->
+        
+        
         </div>
         </div>
 
         <div class="login-form">
             <h3>Login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
+            <input id="emailAdd" type="email" placeholder="your email" class="box">
+            <input id="userPw" type="password" placeholder="your password" class="box">
             <p>Forgot your password <a href="#">Click here</a>
             </p>
             <p>Don't have account ? <a href="#" id="signup-btn">Create now</a>
             </p>
-            <input type="submit" value="Login Now" class="btn">
+            <input type="submit" value="Login Now" class="btn" onClick="login()">
         </div>
 
         <div class="signup-form" id="signup-btn">
             <h3>Signup now</h3>
             <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
-            <input type="text" placeholder="your name" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <input type="password" placeholder="confirm password" class="box">
-            <input type="submit" value="Signup Now" class="btn">
+            <input id="name" type="text" placeholder="your name" class="box">
+            <input id="email" type="email" placeholder="your email" class="box">
+            <input id="pw" type="password" placeholder="your password" class="box">
+            <input id="password" type="password" placeholder="confirm password" class="box">
+            <input type="submit" value="Signup Now" id="signup" class="btn" onClick="check()">
         </div>
+
 
     </header>
     <!-- header section end -->
@@ -114,7 +188,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eius, perspiciatis voluptatum esse
                 deserunt maiores, suscipit earum libero rerum alias perferendis voluptate, aspernatur atque dolore quia
                 ab distinctio blanditiis repellat!</p>
-            <a href="#" class="sb-btn">Shop Now</a>
+            <a href="products.html" class="sb-btn">Shop Now</a>
         </div>
     </section>
 
@@ -295,25 +369,9 @@
 
     <!-- categories section start -->
     <section class="categories" id="categories">
-        <h1 class="heading">product <span>categories</span></h1>
+        <h1 class="heading">other <span>categories</span></h1>
 
         <div class="box-container">
-
-            <div class="box">
-                <img src="https://i5.walmartimages.com/asr/199ab764-f112-4508-888c-86a1094624e8.17daf90b726900a539a8b9873fdea1f5.jpeg"
-                    alt="">
-                <h3>Iphones</h3>
-                <p>upto 45% off</p>
-                <a href="#" class="btn">shop now</a>
-            </div>
-
-            <div class="box">
-                <img src="https://i5.walmartimages.com.mx/mg/gm/3pp/asr/cf05c8fd-9177-4f88-a194-7a5f660bed7f.0ab64f758e0eb6af421e43bcb4682ea8.png?odnHeight=2000&odnWidth=2000&odnBg=ffffff"
-                    alt="">
-                <h3>Android</h3>
-                <p>upto 60% off</p>
-                <a href="#" class="btn">shop now</a>
-            </div>
 
             <div class="box">
                 <img src="https://www.pngall.com/wp-content/uploads/2016/05/Tablet-PNG-Images.png" alt="">
@@ -329,6 +387,21 @@
                 <p>upto 50% off</p>
                 <a href="#" class="btn">shop now</a>
             </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/61KNJav3S9L._SX679_.jpg" alt="">
+                <h3>Bluetooth earphones</h3>
+                <p>upto 45% off</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+
+            <div class="box">
+                <img src="https://m.media-amazon.com/images/I/71q1Haoln0L._SX679_.jpg" alt="">
+                <h3>Backcover</h3>
+                <p>upto 60% off</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+
         </div>
         <div class="view-more">
             <a href="categories.html" class="btn">view more</a>
@@ -443,7 +516,7 @@
                         <a href="#"><i class="fas fa-user"></i>by user</a>
                         <a href="#"><i class="fas fa-calendar"></i>1st april, 2024</a>
                     </div>
-                    <h3>Voice assistancec</h3>
+                    <h3>Voice assistance</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dignissimos.</p>
                 </div>
             </div>
@@ -531,7 +604,8 @@
 
     <!-- Javascript section -->
     <script src="/mobile website/mobile.js"></script>
-
+    <script src="login.js"></script>
+    <script src="cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
@@ -579,6 +653,17 @@
             },
         });
     </script>
+
+    <!-- page loading animation -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+        function hideLoader() {
+            $('.page-loader').fadeOut('slow');
+        }
+    </script>
+
 
 </body>
 

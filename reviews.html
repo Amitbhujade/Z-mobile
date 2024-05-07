@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-mobile</title>
+
+    <!-- swiperjs cdn link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Font awesome cdn link -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Stylesheet link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Product Stylesheet link -->
+    <link rel="stylesheet" href="product.css">
+
+    <style>
+        :root {
+            --orange: #ff7800;
+            --black: #130f40;
+            --white: #ffffff;
+            --light-color: #666;
+            /* --box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.75); */
+            --border: 0.5rem solid rgba(0, 0, 0, 0.1);
+            /* --outline: 0.5rem solid rgba(0, 0, 0, 0.1); */
+            --outline-hover: 0.3rem solid var(--orange);
+            --box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        }
+
+        .reviews {
+            margin-top: 8rem;
+        }
+
+        .reviews .heading{
+            font-size: 3rem;
+        }
+
+        .user-rating {
+            max-width: 80vw;
+            /* Max width */
+            padding: 20px;
+            margin: 0 auto;
+            /* Center website */
+            background: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .user-rating p {
+            font-size: 1.5rem;
+        }
+
+        .heading {
+            font-size: 25px;
+            margin-right: 25px;
+        }
+
+        .fa {
+            font-size: 25px;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        /* Three column layout */
+        .side {
+            float: left;
+            width: 15%;
+            margin-top: 10px;
+            font-size: 2rem;
+        }
+
+        .middle {
+            margin-top: 10px;
+            float: left;
+            width: 70%;
+        }
+
+        /* Place text to the right */
+        .right {
+            text-align: right;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The bar container */
+        .bar-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            color: white;
+        }
+
+        /* Individual bars */
+        .bar-5 {
+            width: 60%;
+            height: 18px;
+            background-color: #04AA6D;
+        }
+
+        .bar-4 {
+            width: 30%;
+            height: 18px;
+            background-color: #2196F3;
+        }
+
+        .bar-3 {
+            width: 10%;
+            height: 18px;
+            background-color: #00bcd4;
+        }
+
+        .bar-2 {
+            width: 4%;
+            height: 18px;
+            background-color: #ff9800;
+        }
+
+        .bar-1 {
+            width: 15%;
+            height: 18px;
+            background-color: #f44336;
+        }
+
+        /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+        @media (max-width: 596px) {
+
+            .side,
+            .middle {
+                width: 100%;
+            }
+
+            .right {
+                display: none;
+            }
+        }
+
+        .filter .container {
+            padding: 1rem;
+            z-index: 0;
+        }
+
+        .filter .container .box {
+            background: #fff;
+            height: auto;
+            border-radius: 0.5rem;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            outline-offset: -1rem;
+            outline: var(--outline);
+            box-shadow: var(--box-shadow);
+            transition: 0.2s ease;
+        }
+
+        .filter .container .box:hover {
+            outline-offset: 0rem;
+            outline: var(--outline-hover);
+        }
+
+        .filter .container .box img {
+            height: 15rem;
+            width: 14rem;
+            border-radius: 50%;
+        }
+
+        .filter .container .box p {
+            padding: 1rem 0;
+            line-height: 1.8;
+            color: var(--light-color);
+            font-size: 1.5rem;
+        }
+
+        .filter .container .box h3 {
+            padding-bottom: 0.5rem;
+            color: var(--black);
+            font-size: 2.2rem;
+        }
+
+        .filter .container .box .stars i {
+            color: var(--orange);
+            font-size: 1.7rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- header section start -->
+    <header class="header">
+
+        <a href="index.html" class="logo"><i class="fa fa-mobile" aria-hidden="true"></i>Z-mobile</a>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="blogs.html">Blogs</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-bag"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="profile" class="fa-solid fa-address-card"><span id="profileName"></span>
+                <div class="profile-info">
+                    <h3>Name: <span id="profileName2"></span></h3>
+                    <h3>Email: <span id="profileEmail" style="text-transform: lowercase;"></span></h3>
+                    <a href="#" onClick="logout()"><i class="fas fa-sign-out btn">
+                            <h3 style="display: inline;"> Logout</h3>
+                        </i> </a>
+                </div>
+            </div>
+        </div>
+
+        <form action="#" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+
+        </form>
+
+        <div class="shopping-cart">
+        
+            <h3 style="font-size: 2rem; text-align: center;">My cart</h3>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="total">Total : Rs.<span class="total-price">0</span></div>
+            <a href="#" class="btn checkout">Checkout</a>
+        
+            <!-- <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px" alt="">
+                    <div class="content">
+                        <h3>Samsung Galaxy M15 5G</h3>
+                        <span class="price">Rs.13,299/-</span>
+                        <span class="quantity">qty: 1</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px" alt="">
+                    <div class="content">
+                        <h3>iQOO Z7 Pro 5G</h3>
+                        <span class="price">Rs.23,999/-</span>
+                        <span class="quantity">qty: 1</span>
+                    </div>
+                </div> 
+                    <div class="total">total : Rs.77,297</div>
+                    <a href="#" class="btn">checkout</a> -->
+        
+        
+        </div>
+        </div>
+
+        <div class="login-form">
+            <h3>Login now</h3>
+            <input id="emailAdd" type="email" placeholder="your email" class="box">
+            <input id="userPw" type="password" placeholder="your password" class="box">
+            <p>Forgot your password <a href="#">Click here</a>
+            </p>
+            <p>Don't have account ? <a href="#" id="signup-btn">Create now</a>
+            </p>
+            <input type="submit" value="Login Now" class="btn" onClick="login()">
+        </div>
+        
+        <div class="signup-form" id="signup-btn">
+            <h3>Signup now</h3>
+            <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
+            <input id="name" type="text" placeholder="your name" class="box">
+            <input id="email" type="email" placeholder="your email" class="box">
+            <input id="pw" type="password" placeholder="your password" class="box">
+            <input id="password" type="password" placeholder="confirm password" class="box">
+            <input type="submit" value="Signup Now" id="signup" class="btn" onClick="check()">
+        </div>
+
+    </header>
+    <!-- header section end -->
+
+    <!-- reviews section start here -->
+
+    <section class="reviews" id="reviews">
+        <h1 class="heading">Customer's <span>Reviews</span></h1>
+
+        <div class="user-rating">
+            <span class="heading">User Rating</span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <p>4.1 average based on 254 reviews.</p>
+            <hr style="border:3px solid #f1f1f1">
+
+            <div class="row">
+                <div class="side">
+                    <div>5 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                        <div class="bar-5"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>150</div>
+                </div>
+                <div class="side">
+                    <div>4 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                        <div class="bar-4"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>63</div>
+                </div>
+                <div class="side">
+                    <div>3 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                        <div class="bar-3"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>15</div>
+                </div>
+                <div class="side">
+                    <div>2 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                        <div class="bar-2"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>6</div>
+                </div>
+                <div class="side">
+                    <div>1 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                        <div class="bar-1"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>20</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="swiper review-slider">
+            <h3 style="font-size: 2.5rem; padding-bottom: 1rem; text-align: center;">Top comments</h3>
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <img src="https://c.stocksy.com/a/dTW500/z9/1316485.jpg" alt="">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                        reprehenderit quam sequi iste vel voluptatum!</p>
+                    <h3>Ajay Verma</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="https://media.istockphoto.com/photos/portrait-of-a-beautifull-smiling-man-picture-id500060262?k=6&m=500060262&s=612x612&w=0&h=dqPFs-C5bejj3tCI_pZFctS5xOHUtipA1FHPUU6aAwU="
+                        alt="">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                        reprehenderit quam
+                        sequi iste vel voluptatum!</p>
+                    <h3>Virat Khanna</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="https://img.freepik.com/premium-photo/realistic-women-portrait-generative-ai_259696-2370.jpg"
+                        alt="">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                        reprehenderit quam
+                        sequi iste vel voluptatum!</p>
+                    <h3>Shreya Singh</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                        reprehenderit quam
+                        sequi iste vel voluptatum!</p>
+                    <h3>Pratik Sharma</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter">
+            <div id="myBtnContainer">
+                <h3 style="font-size: 2rem; display: inline-block;">filter by user rating : </h3>
+                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                <button class="btn" onclick="filterSelection('5star')"> 5star</button>
+                <button class="btn" onclick="filterSelection('4star')"> 4star</button>
+                <button class="btn" onclick="filterSelection('3star')"> 3star</button>
+                <button class="btn" onclick="filterSelection('2star')"> 2star</button>
+                <button class="btn" onclick="filterSelection('1star')"> 1star</button>
+            </div>
+
+            <div class="container">
+
+                <div class="filterDiv 5star">
+                    <div class="box">
+                        <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                            reprehenderit quam
+                            sequi iste vel voluptatum!</p>
+                        <h3>Pratik Sharma</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filterDiv 3star">
+                    <div class="box">
+                        <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                            reprehenderit quam
+                            sequi iste vel voluptatum!</p>
+                        <h3>Pratik Sharma</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filterDiv 4star">
+                    <div class="box">
+                        <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                            reprehenderit quam
+                            sequi iste vel voluptatum!</p>
+                        <h3>Pratik Sharma</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filterDiv 2star">
+                    <div class="box">
+                        <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                            reprehenderit quam
+                            sequi iste vel voluptatum!</p>
+                        <h3>Pratik Sharma</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filterDiv 1star">
+                    <div class="box">
+                        <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                            reprehenderit quam
+                            sequi iste vel voluptatum!</p>
+                        <h3>Pratik Sharma</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filterDiv 5star">
+                    <div class="box">
+                        <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                            reprehenderit quam
+                            sequi iste vel voluptatum!</p>
+                        <h3>Pratik Sharma</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filterDiv 4star">
+                    <div class="box">
+                        <img src="https://c.stocksy.com/a/rFo700/z9/1861479.jpg" alt="">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati odio esse rem vero,
+                            reprehenderit quam
+                            sequi iste vel voluptatum!</p>
+                        <h3>Pratik Sharma</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="filterDiv animals">Cow</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- reviews section end here -->
+
+
+    <!-- footer section start -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3><i class="fa-solid fa-mobile"></i> Z-Mobile</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, porro!</p>
+                <div class="share">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Contact info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1231</a>
+                <a href="#" class="links"><i class="fas fa-phone"></i> 1800-1231-1000</a>
+                <a style="text-transform: lowercase;" href="#" class="links"><i class="fas fa-mail-bulk"></i>
+                    zmobile123@gmail.com</a>
+                <a href="#" class="links"><i class="fas fa-location-dot"></i> Mumbai, India - 441810</a>
+            </div>
+
+            <div class="box">
+                <h3>Quick links</h3>
+                <a href="#home" class="links"><i class="fas fa-arrow-right"></i> Home</a>
+                <a href="#features" class="links"><i class="fas fa-arrow-right"></i> Features</a>
+                <a href="#products" class="links"><i class="fas fa-arrow-right"></i> Products</a>
+                <a href="#categories" class="links"><i class="fas fa-arrow-right"></i> Categories</a>
+                <a href="#reviews" class="links"><i class="fas fa-arrow-right"></i> Reviews</a>
+                <a href="#blogs" class="links"><i class="fas fa-arrow-right"></i> Blogs</a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="your email" class="email">
+                <input type="submit" value="subscribe" class="sb-btn">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.EybAxTSCq4F0wBGW7JA4IQHaCO&pid=Api&P=0&h=180" alt="">
+            </div>
+        </div>
+
+        <div class="credit">created by <span>amit bhujade</span> | All right reserved.</div>
+    </section>
+    <!-- footer section end -->
+
+
+
+
+
+    <!-- Javascript section -->
+    <script src="/mobile website/mobile.js"></script>
+    <script src="login.js"></script>
+    <script src="cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".product-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".review-slider", {
+            loop: true,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            centeredSlides: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+
+
+</body>
+
+</html>

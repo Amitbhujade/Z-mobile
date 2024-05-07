@@ -115,12 +115,12 @@
             transition: 0.2s ease;
         }
 
-        .content h2{
+        .content h2 {
             font-size: 2.5rem;
             color: #130f40;
         }
 
-        .content p{
+        .content p {
             font-size: 1.7rem;
             color: #666;
         }
@@ -184,6 +184,15 @@
             <div id="search-btn" class="fas fa-search"></div>
             <div id="cart-btn" class="fas fa-shopping-bag"></div>
             <div id="user-btn" class="fas fa-user"></div>
+            <div id="profile" class="fa-solid fa-address-card"><span id="profileName"></span>
+                <div class="profile-info">
+                    <h3>Name: <span id="profileName2"></span></h3>
+                    <h3>Email: <span id="profileEmail" style="text-transform: lowercase;"></span></h3>
+                    <a href="#" onClick="logout()"><i class="fas fa-sign-out btn">
+                            <h3 style="display: inline;"> Logout</h3>
+                        </i> </a>
+                </div>
+            </div>
         </div>
 
         <form action="#" class="search-form">
@@ -193,60 +202,57 @@
         </form>
 
         <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/6116+vSW+1L._SX569_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>OnePlus Nord 3 5G</h3>
-                    <span class="price">Rs.39999/-</span>
-                    <span class="quantity">qty: 1</span>
-                </div>
+
+            <h3 style="font-size: 2rem; text-align: center;">My cart</h3>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
             </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>Samsung Galaxy M15 5G</h3>
-                    <span class="price">Rs.13,299/-</span>
-                    <span class="quantity">qty: 1</span>
+            <div class="total">Total : Rs.<span class="total-price">0</span></div>
+            <a href="#" class="btn checkout">Checkout</a>
+
+            <!-- <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px" alt="">
+                    <div class="content">
+                        <h3>Samsung Galaxy M15 5G</h3>
+                        <span class="price">Rs.13,299/-</span>
+                        <span class="quantity">qty: 1</span>
+                    </div>
                 </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>iQOO Z7 Pro 5G</h3>
-                    <span class="price">Rs.23,999/-</span>
-                    <span class="quantity">qty: 1</span>
-                </div>
-            </div>
-            <div class="total">total : Rs.77,297</div>
-            <a href="#" class="btn">checkout</a>
+                <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px" alt="">
+                    <div class="content">
+                        <h3>iQOO Z7 Pro 5G</h3>
+                        <span class="price">Rs.23,999/-</span>
+                        <span class="quantity">qty: 1</span>
+                    </div>
+                </div> 
+                    <div class="total">total : Rs.77,297</div>
+                    <a href="#" class="btn">checkout</a> -->
+
         </div>
         </div>
 
         <div class="login-form">
             <h3>Login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
+            <input id="emailAdd" type="email" placeholder="your email" class="box">
+            <input id="userPw" type="password" placeholder="your password" class="box">
             <p>Forgot your password <a href="#">Click here</a>
             </p>
             <p>Don't have account ? <a href="#" id="signup-btn">Create now</a>
             </p>
-            <input type="submit" value="Login Now" class="btn">
+            <input type="submit" value="Login Now" class="btn" onClick="login()">
         </div>
 
         <div class="signup-form" id="signup-btn">
             <h3>Signup now</h3>
             <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
-            <input type="text" placeholder="your name" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <input type="password" placeholder="confirm password" class="box">
-            <input type="submit" value="Signup Now" class="btn">
+            <input id="name" type="text" placeholder="your name" class="box">
+            <input id="email" type="email" placeholder="your email" class="box">
+            <input id="pw" type="password" placeholder="your password" class="box">
+            <input id="password" type="password" placeholder="confirm password" class="box">
+            <input type="submit" value="Signup Now" id="signup" class="btn" onClick="check()">
         </div>
 
     </header>
@@ -349,48 +355,60 @@
                 <div class="container left">
                     <div class="content">
                         <h2>2017</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+                            vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
+                            iusto primis ea
                             eam.</p>
                     </div>
                 </div>
                 <div class="container right">
                     <div class="content">
                         <h2>2016</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+                            vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
+                            iusto primis ea
                             eam.</p>
                     </div>
                 </div>
                 <div class="container left">
                     <div class="content">
                         <h2>2015</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+                            vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
+                            iusto primis ea
                             eam.</p>
                     </div>
                 </div>
                 <div class="container right">
                     <div class="content">
                         <h2>2012</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+                            vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
+                            iusto primis ea
                             eam.</p>
                     </div>
                 </div>
                 <div class="container left">
                     <div class="content">
                         <h2>2011</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+                            vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
+                            iusto primis ea
                             eam.</p>
                     </div>
                 </div>
                 <div class="container right">
                     <div class="content">
                         <h2>2007</h2>
-                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim
-                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea
+                        <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+                            vim ea mazim
+                            fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo
+                            iusto primis ea
                             eam.</p>
                     </div>
                 </div>
@@ -460,7 +478,8 @@
 
     <!-- Javascript section -->
     <script src="/mobile website/mobile.js"></script>
-
+    <script src="login.js"></script>
+    <script src="cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>

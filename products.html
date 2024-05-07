@@ -17,11 +17,6 @@
     <!-- Product Stylesheet link -->
     <link rel="stylesheet" href="product.css">
 
-    <style>
-
-
-    </style>
-
 </head>
 
 <body>
@@ -45,70 +40,79 @@
             <div id="search-btn" class="fas fa-search"></div>
             <div id="cart-btn" class="fas fa-shopping-bag"></div>
             <div id="user-btn" class="fas fa-user"></div>
+            <div id="profile" class="fa-solid fa-address-card"><span id="profileName"></span>
+                <div class="profile-info">
+                    <h3>Name: <span id="profileName2"></span></h3>
+                    <h3>Email: <span id="profileEmail" style="text-transform: lowercase;"></span></h3>
+                    <a href="#" onClick="logout()"><i class="fas fa-sign-out btn">
+                            <h3 style="display: inline;"> Logout</h3>
+                        </i> </a>
+                </div>
+            </div>
         </div>
+
 
         <form action="#" class="search-form">
             <input type="search" id="search-box" placeholder="search here...">
             <label for="search-box" class="fas fa-search"></label>
-
         </form>
+        <div id="searchResults"></div>
 
         <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/6116+vSW+1L._SX569_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>OnePlus Nord 3 5G</h3>
-                    <span class="price">Rs.39999/-</span>
-                    <span class="quantity">qty: 1</span>
-                </div>
+
+            <h3 style="font-size: 2rem; text-align: center;">My cart</h3>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
             </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>Samsung Galaxy M15 5G</h3>
-                    <span class="price">Rs.13,299/-</span>
-                    <span class="quantity">qty: 1</span>
-                </div>
+            <div class="total">Total : Rs.<span class="total-price">0</span></div>
+            <a href="#" id="rzp-button1" class="btn checkout">Checkout</a>
+
+            <!-- <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="https://m.media-amazon.com/images/I/81BTRVfsuFL._SX679_.jpg" height="250px" width="200px" alt="">
+            <div class="content">
+                <h3>Samsung Galaxy M15 5G</h3>
+                <span class="price">Rs.13,299/-</span>
+                <span class="quantity">qty: 1</span>
             </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px"
-                    alt="">
-                <div class="content">
-                    <h3>iQOO Z7 Pro 5G</h3>
-                    <span class="price">Rs.23,999/-</span>
-                    <span class="quantity">qty: 1</span>
-                </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg" height="250px" width="200px" alt="">
+            <div class="content">
+                <h3>iQOO Z7 Pro 5G</h3>
+                <span class="price">Rs.23,999/-</span>
+                <span class="quantity">qty: 1</span>
             </div>
+        </div> 
             <div class="total">total : Rs.77,297</div>
-            <a href="#" class="btn">checkout</a>
+            <a href="#" class="btn">checkout</a> -->
+
+
         </div>
         </div>
 
         <div class="login-form">
             <h3>Login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
+            <input id="emailAdd" type="email" placeholder="your email" class="box">
+            <input id="userPw" type="password" placeholder="your password" class="box">
             <p>Forgot your password <a href="#">Click here</a>
             </p>
             <p>Don't have account ? <a href="#" id="signup-btn">Create now</a>
             </p>
-            <input type="submit" value="Login Now" class="btn">
+            <input type="submit" value="Login Now" class="btn" onClick="login()">
         </div>
 
         <div class="signup-form" id="signup-btn">
             <h3>Signup now</h3>
             <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
-            <input type="text" placeholder="your name" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <input type="password" placeholder="confirm password" class="box">
-            <input type="submit" value="Signup Now" class="btn">
+            <input id="name" type="text" placeholder="your name" class="box">
+            <input id="email" type="email" placeholder="your email" class="box">
+            <input id="pw" type="password" placeholder="your password" class="box">
+            <input id="password" type="password" placeholder="confirm password" class="box">
+            <input type="submit" value="Signup Now" id="signup" class="btn" onClick="check()">
         </div>
+
 
     </header>
     <!-- header section end -->
@@ -163,77 +167,84 @@
             <div class="product-div">
                 <h3>Samsung Galaxy S24 Ultra 5G</h3>
                 <a href="#" class="cancel-btn" id="cancel"><i class="fas fa-multiply"></i></a>
-                <div class="mySlides">
-                    <div class="numbertext">1 / 6</div>
-                    <img src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">2 / 6</div>
-                    <img src="https://m.media-amazon.com/images/I/71JLhofuYJL._SX679_.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">3 / 6</div>
-                    <img src="https://m.media-amazon.com/images/I/71ZdFihN4YL._SX679_.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">4 / 6</div>
-                    <img src="https://m.media-amazon.com/images/I/71E-ptCgHcL._SX679_.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">5 / 6</div>
-                    <img src="https://m.media-amazon.com/images/I/71RaUP4g7KL._SX679_.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">6 / 6</div>
-                    <img src="https://m.media-amazon.com/images/I/71xI+CuesJL._SX679_.jpg" style="width:100%">
-                </div>
-
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
-
-
-                <div class="row">
-                    <div class="column">
-                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg" style="width:100%" onclick="currentSlide(1)"
-                            alt="The Woods">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71JLhofuYJL._SX679_.jpg" style="width:100%" onclick="currentSlide(2)"
-                            alt="Cinque Terre">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71ZdFihN4YL._SX679_.jpg" style="width:100%" onclick="currentSlide(3)"
-                            alt="Mountains and fjords">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71E-ptCgHcL._SX679_.jpg" style="width:100%" onclick="currentSlide(4)"
-                            alt="Northern Lights">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71RaUP4g7KL._SX679_.jpg" style="width:100%" onclick="currentSlide(5)"
-                            alt="Nature and sunrise">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="https://m.media-amazon.com/images/I/71xI+CuesJL._SX679_.jpg" style="width:100%" onclick="currentSlide(6)"
-                            alt="Snowy Mountains">
+                <div class="slides">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 6</div>
+                        <img src="https://m.media-amazon.com/images/I/71RVuBs3q9L._SX679_.jpg" style="width:100%">
                     </div>
 
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 6</div>
+                        <img src="https://m.media-amazon.com/images/I/71JLhofuYJL._SX679_.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 6</div>
+                        <img src="https://m.media-amazon.com/images/I/71ZdFihN4YL._SX679_.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 6</div>
+                        <img src="https://m.media-amazon.com/images/I/71E-ptCgHcL._SX679_.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">5 / 6</div>
+                        <img src="https://m.media-amazon.com/images/I/71RaUP4g7KL._SX679_.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">6 / 6</div>
+                        <img src="https://m.media-amazon.com/images/I/71xI+CuesJL._SX679_.jpg" style="width:100%">
+                    </div>
+
+                    <!-- <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a> -->
+
+
+                    <div class="row">
+                        <div class="column">
+                            <img class="demo cursor"
+                                src="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg"
+                                style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="https://m.media-amazon.com/images/I/71JLhofuYJL._SX679_.jpg"
+                                style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="https://m.media-amazon.com/images/I/71ZdFihN4YL._SX679_.jpg"
+                                style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="https://m.media-amazon.com/images/I/71E-ptCgHcL._SX679_.jpg"
+                                style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="https://m.media-amazon.com/images/I/71RaUP4g7KL._SX679_.jpg"
+                                style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="https://m.media-amazon.com/images/I/71xI+CuesJL._SX679_.jpg"
+                                style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                        </div>
+
+                    </div>
                 </div>
 
                 <!--product 1 dscription -->
                 <div class="product-description">
                     <div class="product-content">
                         <h4>Samsung Galaxy S24 Ultra 5G AI Smartphone (Titanium Black, 12GB, 256GB Storage)</h4>
-                        <h5>Price: Rs. 1,29,999 /-</h5>
-
+                        <h5>Price: Rs. 1,29,999 /- <span>1,59,999 /-</span></h5>
+                        <img src="https://www.pngmart.com/files/9/Special-offer-PNG-Transparent.png" alt="">
+                        <p id="demo"></p>
                         <div class="option">
-                            <a href="#" class="btn">add to card</a>
-                            <a href="#" class="btn">buy now</a>
+                            <a href="#" class="btn add-to-cart" data-product="Samsung Galaxy S24 Ultra 5G AI Smartphone"
+                                data-price="129999"
+                                data-image="https://m.media-amazon.com/images/I/4193g0Lz6aL._SX300_SY300_QL70_FMwebp_.jpg">Add
+                                to Cart</a>
+                            <a href="#" class="btn">Buy Now</a>
                         </div>
 
                         <ul>
@@ -246,27 +257,34 @@
                         <div class="description">
                             <h5>Description</h5>
                             <ul>
-                                <li>Meet Galaxy S24 Ultra, the ultimate form of Galaxy Ultra with a new titanium exterior and a 17.25cm
+                                <li>Meet Galaxy S24 Ultra, the ultimate form of Galaxy Ultra with a new titanium
+                                    exterior and a 17.25cm
                                     (6.8") flat display.
                                     It's an absolute marvel of design.</li>
-                                <li>The legacy of Galaxy Note is alive and well. Write, tap and navigate with precision your fingers
+                                <li>The legacy of Galaxy Note is alive and well. Write, tap and navigate with precision
+                                    your fingers
                                     wish they had on the
                                     new, flat display.</li>
-                                <li>With the most megapixels on a smartphone and AI processing, Galaxy S24 Ultra sets the industry
+                                <li>With the most megapixels on a smartphone and AI processing, Galaxy S24 Ultra sets
+                                    the industry
                                     standard for image
-                                    quality every time you hit the shutter. What's more, the new ProVisual engine recognizes objects —
+                                    quality every time you hit the shutter. What's more, the new ProVisual engine
+                                    recognizes objects —
                                     improving colour
                                     tone, reducing noise and bringing out detail.</li>
-                                <li>A new way to search is here with Circle to Search. While scrolling your fav social network, use your
+                                <li>A new way to search is here with Circle to Search. While scrolling your fav social
+                                    network, use your
                                     S Pen or finger to
                                     circle something and get Google Search results.</li>
-                                <li>Victory can be yours with the new Snapdragon 8 Gen 3 for Galaxy. Faster processing gives you the
+                                <li>Victory can be yours with the new Snapdragon 8 Gen 3 for Galaxy. Faster processing
+                                    gives you the
                                     power you need for all
-                                    the gameplay you want. Then, manifest graphic effects in real time with ray tracing for
+                                    the gameplay you want. Then, manifest graphic effects in real time with ray tracing
+                                    for
                                     hyper-realistic shadows and
                                     reflections.</li>
                             </ul>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -685,55 +703,12 @@
 
     <!-- Javascript section -->
     <script src="/mobile website/mobile.js"></script>
-
+    <script src="login.js"></script>
+    <script src="cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-    <script>
-        var swiper = new Swiper(".product-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
-
-    <script>
-        var swiper = new Swiper(".review-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
-
+    <!-- Javascript for image slider for product description -->
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
@@ -763,6 +738,39 @@
             dots[slideIndex - 1].className += " active";
             captionText.innerHTML = dots[slideIndex - 1].alt;
         }
+    </script>
+
+    <!-- Javascript for countdown timer -->
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("may 8, 2024 15:37:25").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s left";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
     </script>
 
 </body>

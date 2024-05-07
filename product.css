@@ -196,14 +196,20 @@ img {
 }
 
 .product-div .mySlides img {
-    height: 60rem;
+    height: 65rem;
+    width: 60rem;
+}
 
+.slides {
+    float: left;
+    width: 50%;
 }
 
 /* Hide the images by default */
 .mySlides {
     display: none;
-    padding: 0 20rem;
+    padding: 0rem;
+    margin: 0rem;
 }
 
 /* Add a pointer when hovering over the thumbnail images */
@@ -263,7 +269,7 @@ img {
 /* Six columns side by side */
 .column {
     float: left;
-    width: 8%;
+    width: 14%;
 }
 
 /* Add a transparency effect for thumnbail images */
@@ -278,7 +284,7 @@ img {
 }
 
 .product-description .product-content {
-    padding: 3rem;
+    padding: 3rem 2rem 2rem 1rem;
 }
 
 .product-description .product-content h4 {
@@ -287,10 +293,30 @@ img {
     font-family: serif;
 }
 
+.product-description .product-content h5 span{
+    font-size: 2rem;
+    padding-left: 2rem;
+    color: grey;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
 .product-description .product-content h5 {
     font-size: 2.5rem;
     color: #007bff;
     margin-top: 2rem;
+}
+
+.product-description .product-content img{
+    width: 8rem;
+    display: inline;
+}
+
+.product-description .product-content p{
+    font-size: 2rem;
+    color: red;
+    font-weight: 600;
+    display: inline;
 }
 
 .product-description .product-content ul {
@@ -306,7 +332,7 @@ img {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
     padding: 2rem;
     text-align: center;
 }
@@ -329,7 +355,7 @@ img {
     display: block;
     text-align: start;
     font-size: 1.7rem;
-    
+
 }
 
 .product-description .product-content .option {
@@ -359,6 +385,18 @@ img {
         height: 60rem;
         width: auto;
     }
+
+    .product-div .mySlides img {
+        height: 50rem;
+        width: 60rem;
+    }
+
+    .slides {
+        float: left;
+        width: 60%;
+    }
+
+
 }
 
 @media (max-width:768px) {
@@ -373,6 +411,17 @@ img {
         height: 50rem;
         width: auto;
     }
+
+    .product-div .mySlides img {
+        height: 40rem;
+        width: 50rem;
+    }
+
+    .slides {
+        float: left;
+        width: 100%;
+    }
+
 }
 
 @media (max-width:450px) {
@@ -385,5 +434,15 @@ img {
     .product-div .mySlides img {
         height: 30rem;
         width: auto;
+    }
+
+    .product-div .mySlides img {
+        height: 50rem;
+        width: 40rem;
+    }
+
+    .slides {
+        float: left;
+        width: 100vw;
     }
 }

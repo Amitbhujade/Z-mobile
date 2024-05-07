@@ -4,13 +4,14 @@
 
 let searchForm = document.querySelector('.search-form');
 
-document.querySelector('#search-btn').onclick = () =>{
+document.querySelector('#search-btn').onclick = () => {
     searchForm.classList.toggle('active');
     shoppingCart.classList.remove('active');
     loginForm.classList.remove('active');
     menu.classList.remove('active');
     signupForm.classList.remove('active');
-    signupFormCancel.classList.remove('active');    
+    signupFormCancel.classList.remove('active');
+    profileInfo.classList.remove('active');
 }
 
 let shoppingCart = document.querySelector('.shopping-cart');
@@ -70,7 +71,7 @@ document.querySelector('#menu-btn').onclick = () => {
 
 window.onscroll = () => {
     searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
+    // shoppingCart.classList.remove('active');
     loginForm.classList.remove('active');
     menu.classList.remove('active');
     signupFormCancel.classList.remove('active');
@@ -114,15 +115,18 @@ function w3RemoveClass(element, name) {
 }
 
 // Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-    });
-}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+});
 
 
 // Function to add a class
@@ -237,7 +241,15 @@ document.querySelector('#view-more').onclick = () => {
     shoppingCart.classList.remove('active');
     menu.classList.remove('active');
     loginForm.classList.remove('active');
+    profileInfo.classList.remove('active');
 }
+
+//TO show profile description after clicking on the profile button
+// let profileInfo = document.querySelector('.profile-info');
+
+// document.querySelector('#profile').onclick = () => {
+//     profileInfo.classList.toggle('active');
+// }
 
 //cancel button for product desription page
 let descriptionCancel = document.querySelector('.product-div');
@@ -252,3 +264,44 @@ document.querySelector('#cancel').onclick = () => {
 }
 
 
+//Signup form 
+// Name and Password from the register-form
+var email = document.getElementById('email');
+var password = document.getElementById('pw');
+var name1 = document.getElementById('name');
+
+// storing input from register-form
+function store() {
+    localStorage.setItem('name', name1.value);
+    localStorage.setItem('email', email.value);
+    localStorage.setItem('password', password.value);
+}
+
+// check if stored data from register-form is equal to entered data in the login-form
+function check() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var pw = document.getElementById('pw').value;
+    var confirmPassword = document.getElementById('password').value;
+    let signUp = document.querySelector('.product-div');
+
+
+    // Check if passwords match
+    if (pw !== confirmPassword) {
+        alert('Passwords do not match');
+        return; // Exit the function if passwords don't match
+    }
+
+    // Store the data in localStorage
+    else {
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', pw);
+        alert('registered succesfully');
+
+        // Toggle to login form and remove signup form
+        document.querySelector('.login-form').classList.add('active');
+        document.querySelector('.signup-form').classList.remove('active');
+    }
+    // Optionally, you can redirect the user to another page or display a success message here
+}
