@@ -214,7 +214,7 @@ section {
     right: 2rem;
 }
 
-.header .shopping-cart .cart-items{
+.header .shopping-cart .cart-items {
     background: #eee;
     padding: 1rem;
 }
@@ -435,6 +435,27 @@ section {
     color: var(--white);
     background: var(--orange);
 }
+
+/* changes start  */
+
+.header .forgot-form {
+    position: absolute;
+    top: 110%;
+    right: -110%;
+    width: 40rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: #fff;
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+.header .forgot-form.active {
+    right: 2rem;
+}
+
+/* changes ends  */
 
 .home {
     display: flex;

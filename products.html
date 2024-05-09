@@ -103,6 +103,28 @@
             <input type="submit" value="Login Now" class="btn" onClick="login()">
         </div>
 
+        <!-- Changes -->
+
+        <div class="forgot-form" id="forgot">
+            <h3>Forgot password</h3>
+            <input id="email1" type="email" placeholder="your email">
+            <input type="submit" value="send otp" class="btn" onClick="sendOTP()">
+        </div>
+
+        <div class="otp-form" style="display: none;">
+            <h3>Opt</h3>
+            <input type="text" id="otp" placeholder="Enter OTP" class="box">
+            <input type="submit" value="your otp" class="btn" onClick="verifyOTP()">
+        </div>
+
+        <div id="newPasswordForm" style="display: none;">
+            <input type="password" id="newPassword" placeholder="Enter new password" class="box">
+            <a type="submit" onclick="updatePassword()">Update Password</a>
+        </div>
+        <div id="message"></div>
+
+        <!-- Changes -->
+
         <div class="signup-form" id="signup-btn">
             <h3>Signup now</h3>
             <a href="#" class="cancel-btn" id="cancel-btn"><i class="fas fa-multiply"></i></a>
@@ -702,7 +724,7 @@
 
 
     <!-- Javascript section -->
-    <script src="/mobile website/mobile.js"></script>
+    <script src="mobile.js"></script>
     <script src="login.js"></script>
     <script src="cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
