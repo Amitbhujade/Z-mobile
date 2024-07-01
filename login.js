@@ -40,10 +40,10 @@ function login() {
 // Logout functionality
 function logout() {
     // Clear user authentication data from localStorage
-    localStorage.removeItem('email');
-    localStorage.removeItem('password');
-    localStorage.removeItem('name');
-    localStorage.removeItem('name2');
+    // localStorage.removeItem('email');
+    // localStorage.removeItem('password');
+    // localStorage.removeItem('name');
+    // localStorage.removeItem('name2');
     localStorage.removeItem('loggedIn');
 
     // Optionally, perform additional actions such as redirecting to a login page or updating the UI
@@ -58,11 +58,28 @@ document.addEventListener('DOMContentLoaded', function () {
         // If user is logged in, display the profile
         var storedEmail = localStorage.getItem('email');
         var name = localStorage.getItem('name');
+        var dob = localStorage.getItem('dob');
+        var gender = localStorage.getItem('gender');
+        var mobile = localStorage.getItem('mobile');
 
         document.getElementById('profileName').textContent = name;
         document.getElementById('profileName2').textContent = name;
         document.getElementById('profileEmail').textContent = storedEmail;
         document.getElementById('profile').style.display = 'block';
-    }
 
+        document.getElementById('profileName3').textContent = name;
+        document.getElementById('profileEmail2').textContent = storedEmail;
+        document.getElementById('dateofbirth').textContent = dob;
+        document.getElementById('gender1').textContent = gender;
+        document.getElementById('mobile1').textContent = mobile;
+    }
 });
+
+function move(){
+    window.location.href = 'userdata.html';
+}
+
+function editData(){
+    window.location.href = 'edituserdata.html';
+}
+

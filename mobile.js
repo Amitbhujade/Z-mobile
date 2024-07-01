@@ -69,6 +69,45 @@ document.querySelector('#menu-btn').onclick = () => {
     signupForm.classList.remove('active');
 }
 
+// let forgot = document.querySelector('.forgot-form');
+
+// document.querySelector('#forgot').onclick = () => {
+//     forgot.classList.toggle('active');
+//     menu.classList.remove('active');
+//     searchForm.classList.remove('active');
+//     shoppingCart.classList.remove('active');
+//     loginForm.classList.remove('active');
+//     signupFormCancel.classList.remove('active');
+//     signupForm.classList.remove('active');
+// }
+
+// let onetime = document.querySelector('.otp-form');
+
+// document.querySelector('#otp-btn').onclick = () => {
+//     onetime.classList.toggle('active');
+//     forgot.classList.remove('active');
+//     menu.classList.remove('active');
+//     searchForm.classList.remove('active');
+//     shoppingCart.classList.remove('active');
+//     loginForm.classList.remove('active');
+//     signupFormCancel.classList.remove('active');
+//     signupForm.classList.remove('active');
+// }
+
+// let pass = document.querySelector('.password-form');
+
+// document.querySelector('#newPasswordForm').onclick = () => {
+//     pass.classList.toggle('active');
+//     onetime.classList.remove('active');
+//     forgot.classList.remove('active');
+//     menu.classList.remove('active');
+//     searchForm.classList.remove('active');
+//     shoppingCart.classList.remove('active');
+//     loginForm.classList.remove('active');
+//     signupFormCancel.classList.remove('active');
+//     signupForm.classList.remove('active');
+// }
+
 window.onscroll = () => {
     searchForm.classList.remove('active');
     // shoppingCart.classList.remove('active');
@@ -76,6 +115,9 @@ window.onscroll = () => {
     menu.classList.remove('active');
     signupFormCancel.classList.remove('active');
     signupForm.classList.remove('active');
+    forgot.classList.remove('active');
+    onetime.classList.remove('active');
+    pass.classList.remove('active');
 }
 
 //Filter module for product page
@@ -270,11 +312,36 @@ var email = document.getElementById('email');
 var password = document.getElementById('pw');
 var name1 = document.getElementById('name');
 
+
 // storing input from register-form
 function store() {
     localStorage.setItem('name', name1.value);
     localStorage.setItem('email', email.value);
     localStorage.setItem('password', password.value);
+}
+
+function save() {
+    var name2 = document.getElementById('name2');
+    var dob = document.getElementById('date');
+    var gender = document.querySelector('input[name="gen"]:checked').value;
+    var mobile = document.getElementById('mnumber');
+    
+    localStorage.removeItem('name');
+    localStorage.setItem('name', name2.value);
+    localStorage.setItem('dob', dob.value);
+    localStorage.setItem('gender', gender);
+    localStorage.setItem('mobile', mobile.value);
+
+    console.log('button clicked');
+
+    // Debugging: Verify values in local storage (comment out after testing)
+    console.log("Name:", localStorage.getItem('name'));
+    console.log("DoB:", localStorage.getItem('dob'));
+    console.log("Gender:", localStorage.getItem('gender'));
+    console.log("Mobile:", localStorage.getItem('mobile'));
+
+    alert("User information successfully changed");
+    window.location.href = 'userdata.html';
 }
 
 // check if stored data from register-form is equal to entered data in the login-form
@@ -305,3 +372,5 @@ function check() {
     }
     // Optionally, you can redirect the user to another page or display a success message here
 }
+
+

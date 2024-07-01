@@ -324,6 +324,39 @@ section {
     color: black;
 }
 
+#profile .profile-info #setting {
+    color: var(--black);
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+}
+
+.user .userdata {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    padding-left: 10rem;
+    height: 100vh;
+    width: 90%;
+}
+
+.user .userdata h1{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--orange);
+    margin-bottom: 2rem;
+}
+
+.user .userdata h3{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    
+}
+
+.user .userdata h3 #profileEmail2{
+    text-transform: lowercase;
+}
+
 .header .login-form {
     position: absolute;
     top: 110%;
@@ -453,6 +486,100 @@ section {
 
 .header .forgot-form.active {
     right: 2rem;
+}
+
+.header .forgot-form h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 600;
+    padding-bottom: 2rem;
+}
+
+.header .forgot-form .box {
+    width: 100%;
+    margin: .7rem 0;
+    background: #eee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.header .otp-form {
+    position: absolute;
+    top: 110%;
+    right: -110%;
+    width: 40rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: #fff;
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+.header .otp-form.active {
+    right: 2rem;
+}
+
+.header .otp-form h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 600;
+    padding-bottom: 2rem;
+}
+
+.header .otp-form .box {
+    width: 100%;
+    margin: .7rem 0;
+    background: #eee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.header .password-form {
+    position: absolute;
+    top: 110%;
+    right: -110%;
+    width: 40rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: #fff;
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+.header .password-form.active {
+    right: 2rem;
+}
+
+.header .password-form h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 600;
+    padding-bottom: 2rem;
+}
+
+.header .password-form .box {
+    width: 100%;
+    margin: .7rem 0;
+    background: #eee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: var(--black);
+    text-transform: none;
 }
 
 /* changes ends  */
@@ -798,6 +925,29 @@ section {
 .footer .box-container .box .share a:hover {
     background: var(--orange);
     color: #fff;
+}
+
+.footer .box-container .box .admin-div{
+    width: 100%;
+}
+
+.footer .box-container .box .admin-div a{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.footer .box-container .box .admin-div a i{
+    display: flex;
+    align-items: center;
+    color: var(--orange);
+}
+
+.footer .box-container .box .admin-div a h4{
+    margin: 0;
+    padding: 0;
+    color: var(--white);
 }
 
 .footer .box-container .email {

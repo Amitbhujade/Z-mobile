@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel: customers</title>
+    <!-- Material icon cdn -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- admin style css -->
+    <link rel="stylesheet" href="adminstyle.css">
+
+    <style>
+        .pagination {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 1rem;
+            text-align: center;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        main .recent-order {
+            margin-top: 2rem;
+        }
+
+        main .recent-order h2 {
+            margin-bottom: 0.8rem;
+        }
+
+        main .recent-order table {
+            background: var(--color-white);
+            width: 100%;
+            margin-bottom: 5rem;
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: all 300ms ease;
+        }
+
+        main .recent-order table:hover {
+            box-shadow: none;
+        }
+
+        main table tbody td {
+            height: 2.8rem;
+            border-bottom: 1px solid var(--color-light);
+            color: var(--color-dark-variant);
+        }
+
+        main table tbody tr:last-child td {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- aside section start -->
+
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="https://admin.xitongbuluo.com/statics/2021/img/guanjia_logo.png" alt="">
+                    <h2 class="text-muted">Admin Panel</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="admin.html"><span class="material-symbols-sharp">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="customers.html"><span class="material-symbols-sharp">person
+                    </span>
+                    <h3>Customer</h3>
+                </a>
+                <a href="orders.html"><span class="material-symbols-sharp">receipt_long</span>
+                    <h3>Orders</h3>
+                </a>
+                <a href="analytics.html"><span class="material-symbols-sharp">monitoring
+                    </span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="messages.html"><span class="material-symbols-sharp">sms
+                    </span>
+                    <h3>Messages</h3>
+                    <span class="message-count">26</span>
+                </a>
+                <a href="productlist.html" class="active"><span class="material-symbols-sharp">category
+                    </span>
+                    <h3>Products</h3>
+                </a>
+                <a href="setting.html"><span class="material-symbols-sharp">settings
+                    </span>
+                    <h3>Setting</h3>
+                </a>
+                <a href="addproduct.html"><span class="material-symbols-sharp">add
+                    </span>
+                    <h3>Add Product</h3>
+                </a>
+                <a href="#" onclick="adminLogout()"><span class="material-symbols-sharp">logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+        <!-- aside section end -->
+
+        <!-- main section start -->
+
+        <main>
+            <h1>Products</h1>
+
+            <div class="date">
+                <input type="date">
+            </div>
+
+            <div class="insights">
+                <!-- sales -->
+                <div class="sales">
+                    <span class="material-symbols-outlined">devices
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Products</h3>
+                            <h1>2,000</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>80%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 1 month</small>
+                </div>
+
+                <!-- expenses -->
+                <div class="expenses">
+                    <span class="material-symbols-outlined">4g_mobiledata
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Old Products</h3>
+                            <h1>1,500</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>45%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 1 month</small>
+                </div>
+                <!-- profit -->
+                <div class="profit">
+                    <span class="material-symbols-outlined">5g
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>New Products</h3>
+                            <h1>500</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>55%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hours</small>
+                </div>
+            </div>
+
+            <div class="recent-order">
+                <h2>Product Data</h2>
+                <table id="customerTable">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product price</th>
+                            <th>Product date</th>
+                            <th>Product condition</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s23</td>
+                            <td>79,999</td>
+                            <td>15-08-2022</td>
+                            <td class="danger">Old</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung galaxy s24 ultra</td>
+                            <td>1,29,999</td>
+                            <td>15-08-2023</td>
+                            <td class="success">New</td>
+                            <td>Details</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="pagination" class="pagination"></div>
+            </div>
+        </main>
+
+        <!-- main section end -->
+
+        <div class="right">
+
+            <!-- top start -->
+            <div class="top">
+                <button id="menu-btn"><span class="material-symbols-outlined">menu
+                    </span></button>
+                <div class="theme-toggler">
+                    <span class="material-symbols-outlined active">
+                        light_mode
+                    </span>
+                    <span class="material-symbols-outlined">
+                        dark_mode
+                    </span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Amit</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Image-File.png"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- top end -->
+
+            <!-- recent updates start -->
+
+            <div class="recent-updates">
+                <h2>Recent Updates</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Nikhil Sharma</b> received his order of samsung galaxy s24 ultra</p>
+                            <small>2 minutes ago</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Photos.png"
+                                alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Nikhil Sharma</b> received his order of samsung galaxy s24 ultra</p>
+                            <small>2 minutes ago</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
+                                alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Nikhil Sharma</b> received his order of samsung galaxy s24 ultra</p>
+                            <small>2 minutes ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- recent updates end -->
+
+            <!-- analytics start -->
+            <div class="sales-analytics">
+                <h2>Sales Analytics</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>ONLINE ORDERS</h3>
+                            <small class="text-muted">Last 24 hours</small>
+                        </div>
+                        <h5 class="success">+40%</h5>
+                        <h3>25320</h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>OFFLINE ORDERS</h3>
+                            <small class="text-muted">Last 24 hours</small>
+                        </div>
+                        <h5 class="danger">0%</h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="material-symbols-outlined">
+                            person_check
+                        </span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>NEW CUSTOMERS</h3>
+                            <small class="text-muted">Last 24 hours</small>
+                        </div>
+                        <h5 class="success">+20%</h5>
+                        <h3>200</h3>
+                    </div>
+                </div>
+                <div class="item add-product">
+                    <div>
+                        <a href="addproduct.html"><span class="material-symbols-outlined">
+                                add
+                            </span>
+                            <h3>Add Product</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- admin script -->
+
+    <script src="admin.js"></script>
+    <script src="adminlogin.js"></script>
+
+    <!-- Logic for pagination -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const rowsPerPage = 6; // Set the number of rows you want per page
+            const table = document.getElementById('customerTable').getElementsByTagName('tbody')[0];
+            const pagination = document.getElementById('pagination');
+            const rows = Array.from(table.getElementsByTagName('tr'));
+            const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+            function displayPage(page) {
+                table.innerHTML = '';
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                const pageRows = rows.slice(start, end);
+
+                for (let row of pageRows) {
+                    table.appendChild(row);
+                }
+
+                updatePagination(page);
+            }
+
+            function updatePagination(page) {
+                pagination.innerHTML = '';
+                for (let i = 1; i <= totalPages; i++) {
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.innerText = i;
+                    if (i === page) a.classList.add('active');
+                    a.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        displayPage(i);
+                    });
+                    pagination.appendChild(a);
+                }
+            }
+
+            displayPage(1);
+        });
+    </script>
+
+
+</body>
+
+</html>

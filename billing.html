@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z-mobile</title>
+
+    <!-- email otp smtpjs cnd -->
     <script src="https://smtpjs.com/v3/smtp.js">
     </script>
 
@@ -21,6 +23,9 @@
     <!-- Product Stylesheet link -->
     <link rel="stylesheet" href="product.css">
 
+    <!-- razerpay cdn -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <style>
         :root {
             --orange: #ff7800;
@@ -34,14 +39,70 @@
             --box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
         }
 
-        .blogs {
-            margin-top: 8rem;
+        .bill {
+            width: 100vw;
+            height: 100vh;
+            margin-top: 10rem;
         }
 
-        .blogs .box-container {
+        .bill .bill-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .bill .bill-container h2 {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .bill .bill-container .address {
+            grid-column: 50%;
+            border-right: 1px solid var(--light-color);
+        }
+
+        .bill .bill-container .address form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0.5rem 1rem;
+        }
+
+        .bill .bill-container .address form input {
+            height: 4rem;
+            margin: 0.5rem;
+            width: 100%;
+        }
+
+        .bill .bill-container .address form input::placeholder {
+            padding-left: 1rem;
+            font-size: 2rem;
+        }
+
+        .bill .bill-container .address form button {
+            width: 30%;
+            text-align: center;
+
+        }
+
+        .bill .bill-container .billing {
+            grid-column: 50%;
+        }
+
+
+        .bill-container .billing .bill-items {
+            background: #eee;
+            width: 100%;
+            margin: 0 2rem;
+        }
+
+        .bill-container .billing .total {
+            padding-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
     </style>
 
@@ -52,7 +113,7 @@
     <!-- header section start -->
     <header class="header">
 
-        <a href="index.html" class="logo"><i class="fa fa-mobile" aria-hidden="true"></i>Z-mobile</a>
+        <a href="index.html" class="logo"><i class="fa-solid fa-mobile-screen"></i>Z-mobile</a>
 
         <nav class="nav">
             <a href="index.html">Home</a>
@@ -70,6 +131,7 @@
             <div id="user-btn" class="fas fa-user"></div>
             <div id="profile" class="fa-solid fa-address-card"><span id="profileName"></span>
                 <div class="profile-info">
+                    <a href="#" onclick="move()"><i class="fa-solid fa-gear" id="setting"></i></a>
                     <h3>Name: <span id="profileName2"></span></h3>
                     <h3>Email: <span id="profileEmail" style="text-transform: lowercase;"></span></h3>
                     <a href="#" onClick="logout()"><i class="fas fa-sign-out btn">
@@ -131,25 +193,25 @@
         </div>
 
         <!-- Changes -->
-        
+
         <div class="forgot-form" id="forgot">
             <h3>Forgot password</h3>
             <input id="email1" type="email" placeholder="Your email" class="box">
             <input onclick="sendOTP()" id="otp-btn" value="Send otp" class="btn one-btn" type="submit">
         </div>
-        
+
         <div class="otp-form" id="otp-btn">
             <h3>Opt verification</h3>
             <input type="text" id="otp" placeholder="Enter OTP" class="box">
             <input type="submit" id="newPasswordForm" value="your otp" class="btn" onclick="verifyOTP()">
         </div>
-        
+
         <div class="password-form" id="newPasswordForm">
             <h3>Set new password</h3>
             <input type="password" id="newPassword" placeholder="Enter new password" class="box">
             <a href="#" id="pass" type="submit" onclick="updatePassword()" class="btn">Update Password</a>
         </div>
-        
+
         <!-- Changes -->
 
         <div class="signup-form" id="signup-btn">
@@ -165,15 +227,38 @@
     </header>
     <!-- header section end -->
 
-    <!-- checkout section start -->
+    <!-- address & billing section start -->
+    <section id="bill" class="bill">
+        <h1 class="heading"> <span>Address & Billing</span></h1>
 
-    <div class="checkout">
-        <div class="check">
-
+        <div class="bill-container">
+            <div class="address">
+                <h2>Address</h2>
+                <form action="#">
+                    <input type="text" placeholder="Full Name" id="fname">
+                    <input type="text" placeholder="Phone number" id="num">
+                    <input type="text" placeholder="Pincode" id="code">
+                    <input type="text" placeholder="state" id="state">
+                    <input type="text" placeholder="city" id="city">
+                    <input type="text" placeholder="House No." id="house">
+                    <input type="text" placeholder="Landmark" id="land">
+                    <button type="submit" class="btn">Save</button>
+                </form>
+            </div>
+            <div class="billing">
+                <h2>Billing</h2>
+                <div class="bill-items">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="total" style="font-size: 2rem;">Total : Rs.<span class="billtotal-price">0</span>
+                    <a href="#" id="rzp-button1" class="btn checkout">Checkout</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- checkout section end -->
+    <!-- address & billing section end -->
+
 
     <!-- footer section start -->
 
@@ -189,6 +274,12 @@
                     <a href="#"><i class="fab fa-x-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="admin-div">
+                    <a href="#" onclick="window.location.href = 'adminlogin.html'"><i
+                            class="fa-solid fa-right-to-bracket"></i>
+                        <h4>admin</h4>
+                    </a>
                 </div>
             </div>
 
@@ -228,89 +319,12 @@
 
 
 
-
-
-
-
-
-
-
     <!-- Javascript section -->
     <script src="mobile.js"></script>
     <script src="login.js"></script>
     <script src="cart.js"></script>
     <script src="forgot.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script>
-        var swiper = new Swiper(".product-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
-
-    <script>
-        var swiper = new Swiper(".review-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
-
-    <!-- script for collapsible  -->
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        }
-    </script>
-
-    <!-- Script for search -->
-
-    <script>
-
-    </script>
 
 
 </body>

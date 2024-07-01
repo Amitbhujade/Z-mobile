@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z-mobile</title>
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
 
     <!-- swiperjs cdn link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -52,7 +50,7 @@
     <!-- header section start -->
     <header class="header">
 
-        <a href="index.html" class="logo"><i class="fa fa-mobile" aria-hidden="true"></i>Z-mobile</a>
+        <a href="index.html" class="logo"><i class="fa-solid fa-mobile-screen"></i>Z-mobile</a>
 
         <nav class="nav">
             <a href="index.html">Home</a>
@@ -70,6 +68,7 @@
             <div id="user-btn" class="fas fa-user"></div>
             <div id="profile" class="fa-solid fa-address-card"><span id="profileName"></span>
                 <div class="profile-info">
+                    <a href="#" onclick="move()"><i class="fa-solid fa-gear" id="setting"></i></a>
                     <h3>Name: <span id="profileName2"></span></h3>
                     <h3>Email: <span id="profileEmail" style="text-transform: lowercase;"></span></h3>
                     <a href="#" onClick="logout()"><i class="fas fa-sign-out btn">
@@ -131,25 +130,25 @@
         </div>
 
         <!-- Changes -->
-        
+
         <div class="forgot-form" id="forgot">
             <h3>Forgot password</h3>
             <input id="email1" type="email" placeholder="Your email" class="box">
             <input onclick="sendOTP()" id="otp-btn" value="Send otp" class="btn one-btn" type="submit">
         </div>
-        
+
         <div class="otp-form" id="otp-btn">
             <h3>Opt verification</h3>
             <input type="text" id="otp" placeholder="Enter OTP" class="box">
             <input type="submit" id="newPasswordForm" value="your otp" class="btn" onclick="verifyOTP()">
         </div>
-        
+
         <div class="password-form" id="newPasswordForm">
             <h3>Set new password</h3>
             <input type="password" id="newPassword" placeholder="Enter new password" class="box">
             <a href="#" id="pass" type="submit" onclick="updatePassword()" class="btn">Update Password</a>
         </div>
-        
+
         <!-- Changes -->
 
         <div class="signup-form" id="signup-btn">
@@ -165,15 +164,19 @@
     </header>
     <!-- header section end -->
 
-    <!-- checkout section start -->
+    <!-- userinfo section start-->
 
-    <div class="checkout">
-        <div class="check">
-
+    <div class="user" id="user">
+        <div class="userdata">
+            <h1>User Information</h1>
+            <h3>Username: <span id="profileName3" class="username"></span></h3>
+            <h3>Email: <span id="profileEmail2"></span></h3>
+            <h3>Date of birth: <span id="dateofbirth"></span></h3>
+            <h3>Gender: <span id="gender1"></span></h3>
+            <h3>Mobile no.: <span id="mobile1"></span></h3>
+            <input type="button" class="btn" value="Edit" onclick="editData()">
         </div>
     </div>
-
-    <!-- checkout section end -->
 
     <!-- footer section start -->
 
@@ -189,6 +192,11 @@
                     <a href="#"><i class="fab fa-x-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="admin-div">
+                    <a href="#" onclick="window.location.href = 'adminlogin.html'"><i class="fa-solid fa-right-to-bracket"></i>
+                        <h4>admin</h4>
+                    </a>
                 </div>
             </div>
 
@@ -227,90 +235,11 @@
 
 
 
-
-
-
-
-
-
-
-
     <!-- Javascript section -->
     <script src="mobile.js"></script>
     <script src="login.js"></script>
     <script src="cart.js"></script>
     <script src="forgot.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script>
-        var swiper = new Swiper(".product-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
-
-    <script>
-        var swiper = new Swiper(".review-slider", {
-            loop: true,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            centeredSlides: true,
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-    </script>
-
-    <!-- script for collapsible  -->
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        }
-    </script>
-
-    <!-- Script for search -->
-
-    <script>
-
-    </script>
 
 
 </body>

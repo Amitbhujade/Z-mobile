@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.box .inner-box {
+    background: #fff;
+    padding: 1.5rem 1rem;
+    box-shadow: 0.5rem 1rem 3rem 0.5rem rgb(243, 211, 153);
+    width: 50%;
+    border-radius: 10px;
+}
+
+.box .inner-box:hover{
+    box-shadow: none;
+    border: 1px solid orange;
+}
+
+.box .inner-box form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.box .inner-box form input{
+    font-size: 1rem;
+    text-align: start;
+    text-transform: uppercase;
+    color: orange;
+    font-weight: 300;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border: 2px solid orange;
+}
+
+.box .inner-box form h2{
+    text-align: center;
+    color: orange;
+    text-shadow: 1px 2px 1px black;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+
+}
+
+.box .inner-box form input::placeholder {
+    color: orange;
+    width: 90%;
+    font-weight: 500;
+}
+
+.box .inner-box form .button {
+    text-align: center;
+}
+
+.box .inner-box form .button button{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    transition: all 300ms ease;
+    border: 2px solid orange;
+    border-radius: 10px;
+    color: orange;
+}
+
+.box .inner-box form .button #button1:hover{
+    background-color: green;
+    color: #fff;
+    /* border: none; */
+}
+
+.box .inner-box form .button #button2:hover {
+    background-color: gold;
+    color: black;
+    /* border: none; */
+}
+
+
